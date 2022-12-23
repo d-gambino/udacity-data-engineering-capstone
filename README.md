@@ -5,8 +5,8 @@ The objective of this project is to create an ETL pipeline for I94 immigration, 
 
 #### The project follows the following steps:
 
-Step 1: Scope the Project and Gather Data
-Step 2: Explore and Assess the Data
-Step 3: Define the Data Model
-Step 4: Run ETL to Model the Data
-Step 5: Complete Project Write Up
+1. Scope the Project and Gather Data
+2. Explore and Assess the Data
+3. Define the Data Model
+4. Run ETL to Model the Data
+5. Complete Project Write Up
