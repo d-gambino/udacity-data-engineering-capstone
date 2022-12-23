@@ -22,4 +22,34 @@ Once data is sufficiently cleaned, it will be written to parquet files and store
 #### Description of our core data
 Our data comes from the US National Tourism and Trade Office. Historically, all foreign visitors coming into the USA via air or sea were subject to an examination by the Customs Border Protection (CBP) officer after which they would be issued either a passport admission stamp or a small white card called the I-94 form. This form contains precisely the data which we are basing our data model on.  
 
-Immigration data is in parquet format (converted from SAS data using a third-party Spark package - spark-sas7bdat).
+Immigration data is in parquet format (converted from SAS data using a third-party Spark package - spark-sas7bdat).   
+
+## Step 3: Define the Data Model
+### 3.1 Conceptual Data Model
+View ERD.png or refer to Submission.ipynb for the visual representation of our data model. 
+
+#### The Fact Table
+Our immigration fact table was left at its most granular level possible, allowing us to have flexibility should we want to create a proper data warehouse further down the line with different levels of aggregation. As such, our data model can drill down to the date-time level for each individual immigrant. Tables with values at city-level granularity were aggregated to state-level or higher to enable joins to our fact table and avoid exploding our data unnecessarily.
+
+#### The Dimension Tables
+Our dimension tables include demographic information for each US city, average temperatures for various countries, and descriptive airport information, all of which can be joined to our fact table's foreign keys. We also have a calendar table (derived from the SAS dates in our immigration data) which will allow us to filter and group by various time dimensions with ease.
+
+#### Why?
+The purpose of this data model is to enable users to analyse US immigration data with added context coming from the average temperature of resident countries at the time of departure as well as demographic information of the US states that individuals are immigrating to.
+
+### 3.2 Mapping Out Data Pipelines
+List the steps necessary to pipeline the data into the chosen data model
+
+#### The pipeline steps are as follows:
+
+1. Load in the datasets
+Clean datasets
+- check for missing values
+- check for duplicates
+2. Create dimension tables based on I94 immigration data
+- Clean the I94 Immigration data to create Spark dataframe for each month
+- Create calendar dimension table
+3. Create country dimension table
+4. Create immigration fact table
+5. Create dimesion table based on demographics data
+- Create demographic dimension table
