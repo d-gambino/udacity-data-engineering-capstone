@@ -1,5 +1,4 @@
-# I94 Immigration Data Pipeline
-## Data Engineering Capstone Project
+# I94 Immigration Data Pipeline: Data Engineering Capstone Project
 ### Project Summary
 The objective of this project is to create an ETL pipeline for I94 immigration, global temperatures and US demographics datasets to form an analytics database on immigration events over time. The resulting database will enable analysis on externalities within non-US countries as well as US states which could deliver insight on some of the less obvious factors surrounding immigration to the US.
 
@@ -12,7 +11,7 @@ The objective of this project is to create an ETL pipeline for I94 immigration, 
 5. Complete Project Write Up
   
   
-### Step 1: Scope the Project and Gather Data
+## Step 1: Scope the Project and Gather Data
 #### Scope
 Spark will be used to load the data into dataframes, clean said dataframes, and execute our ETL pipeline to create our final data model. Along the way, we will be using tools like Pandas and Seaborn to help visualize our data and sniff out missing values, problematic datatypes, and other potential obstacles.  
 
@@ -35,4 +34,7 @@ Our dimension tables include demographic information for each US city, average t
 
 #### Why?
 The purpose of this data model is to enable users to analyse US immigration data with added context coming from the average temperature of resident countries at the time of departure as well as demographic information of the US states that individuals are immigrating to.
+
+##Step 4: Run Pipelines to Model the Data, perform data quality checks
+Refer to Submission.ipynb for details on this step
 
