@@ -14,12 +14,12 @@ The objective of this project is to create an ETL pipeline for I94 immigration, 
   
 ### Step 1: Scope the Project and Gather Data
 #### Scope
-Spark will be used to load the data into dataframes, clean said dataframes, and execute our ETL pipeline to create our final data model. Along the way, we will be using tools like Pandas and Seaborn to help visualize our data and sniff out missing values, problematic datatypes, and other potential obstacles.
+Spark will be used to load the data into dataframes, clean said dataframes, and execute our ETL pipeline to create our final data model. Along the way, we will be using tools like Pandas and Seaborn to help visualize our data and sniff out missing values, problematic datatypes, and other potential obstacles.  
 
-Once data is sufficiently cleaned, it will be written to parquet files and stored in an output folder.
+Once data is sufficiently cleaned, it will be written to parquet files and stored in an output folder.  
 
 
 ##### Description of our core data
-Our data comes from the US National Tourism and Trade Office. Historically, all foreign visitors coming into the USA via air or sea were subject to an examination by the Customs Border Protection (CBP) officer after which they would be issued either a passport admission stamp or a small white card called the I-94 form. This form contains precisely the data which we are basing our data model on.
+Our data comes from the US National Tourism and Trade Office. Historically, all foreign visitors coming into the USA via air or sea were subject to an examination by the Customs Border Protection (CBP) officer after which they would be issued either a passport admission stamp or a small white card called the I-94 form. This form contains precisely the data which we are basing our data model on.  
 
 Immigration data is in parquet format (converted from SAS data using a third-party Spark package - spark-sas7bdat).
