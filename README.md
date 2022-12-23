@@ -42,14 +42,14 @@ List the steps necessary to pipeline the data into the chosen data model
 
 #### The pipeline steps are as follows:
 
-* Load in the datasets
-* Clean datasets
-1. check for missing values
-2. check for duplicates
-* Create dimension tables based on I94 immigration data
-1. Clean the I94 Immigration data to create Spark dataframe for each month
-2. Create calendar dimension table
-* Create country dimension table
-* Create immigration fact table
-* Create dimesion table based on demographics data
-1. Create demographic dimension table
+1. Load in the datasets
+2. Clean datasets
+  - check for missing values
+  - check for duplicates
+3. Create dimension tables based on I94 immigration data
+  - Clean the I94 Immigration data to create Spark dataframe for each month
+  - Create calendar dimension table
+4. Create country dimension table
+5. Create immigration fact table
+6. Create dimesion table based on demographics data
+  - Create demographic dimension table
