@@ -25,7 +25,6 @@ Our data comes from the US National Tourism and Trade Office. Historically, all 
 Immigration data is in parquet format (converted from SAS data using a third-party Spark package - spark-sas7bdat).   
 
 ## Step 3: Define the Data Model
-### 3.1 Conceptual Data Model
 View ERD.png or refer to Submission.ipynb for the visual representation of our data model. 
 
 #### The Fact Table
@@ -37,19 +36,3 @@ Our dimension tables include demographic information for each US city, average t
 #### Why?
 The purpose of this data model is to enable users to analyse US immigration data with added context coming from the average temperature of resident countries at the time of departure as well as demographic information of the US states that individuals are immigrating to.
 
-### 3.2 Mapping Out Data Pipelines
-List the steps necessary to pipeline the data into the chosen data model
-
-#### The pipeline steps are as follows:
-
-1. Load in the datasets
-2. Clean datasets
-  - check for missing values
-  - check for duplicates
-3. Create dimension tables based on I94 immigration data
-  - Clean the I94 Immigration data to create Spark dataframe for each month
-  - Create calendar dimension table
-4. Create country dimension table
-5. Create immigration fact table
-6. Create dimesion table based on demographics data
-  - Create demographic dimension table
