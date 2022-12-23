@@ -35,6 +35,6 @@ Our dimension tables include demographic information for each US city, average t
 #### Why?
 The purpose of this data model is to enable users to analyse US immigration data with added context coming from the average temperature of resident countries at the time of departure as well as demographic information of the US states that individuals are immigrating to.
 
-##Step 4: Run Pipelines to Model the Data, perform data quality checks
+## Step 4: Run Pipelines to Model the Data, perform data quality checks
 Refer to Submission.ipynb for details on this step
 
