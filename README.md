@@ -10,8 +10,8 @@ The objective of this project is to create an ETL pipeline for I94 immigration, 
 3. Define the Data Model
 4. Run ETL to Model the Data
 5. Complete Project Write Up
-
-
+  
+  
 ### Step 1: Scope the Project and Gather Data
 #### Scope
 Spark will be used to load the data into dataframes, clean said dataframes, and execute our ETL pipeline to create our final data model. Along the way, we will be using tools like Pandas and Seaborn to help visualize our data and sniff out missing values, problematic datatypes, and other potential obstacles.
