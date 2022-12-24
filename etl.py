@@ -8,13 +8,12 @@ from pyspark.sql.functions import col, udf, create_map, lit, monotonically_incre
 config = configparser.ConfigParser()
 config.read('config.cfg')
 
-os.environ['JAVA_HOME'] = "C:\\Program Files\\AdoptOpenJDK\\jre-8.0.252.09-hotspot"
-os.environ['SPARK_HOME'] = "E:\\Anaconda\\Lib\\site-packages\\pyspark"
-os.environ['HADOOP_HOME'] = "E:\\Anaconda\\Lib\\site-packages\\pyspark"
 os.environ["PYSPARK_PYTHON"] = "python"
-
 os.environ['AWS_ACCESS_KEY_ID'] = config['AWS']['AWS_ACCESS_KEY_ID']
 os.environ['AWS_SECRET_ACCESS_KEY'] = config['AWS']['AWS_SECRET_ACCESS_KEY']
+
+SOURCE_S3_BUCKET = config['S3']['SOURCE_S3_BUCKET']
+DEST_S3_BUCKET = config['S3']['DEST_S3_BUCKET']
 
 spark = SparkSession.builder\
                     .config("spark.jars.packages", "org.apache.hadoop:hadoop-aws:3.2.2,com.amazonaws:aws-java-sdk:1.12.369")\
@@ -272,12 +271,12 @@ def process_tables(df_temperature, df_airport_codes, df_demographics, df_immigra
 
 def main():
 
-    labels_fp = './I94_SAS_Labels_Descriptions.SAS'
-    immigration_fp = "./sas_data/*.parquet"
-    temperature_fp = "./temperature_data/GlobalLandTemperaturesByCity.csv"
-    demographics_fp = "us-cities-demographics.csv"
-    airport_fp = "airport-codes_csv.csv"
-    output_path = "s3a://i94immigration/"
+    labels_fp = "./I94_SAS_Labels_Descriptions.SAS"
+    immigration_fp = os.path.join(SOURCE_S3_BUCKET + "sas_data/*.parquet")
+    temperature_fp = os.path.join(SOURCE_S3_BUCKET + "temperature_data/GlobalLandTemperaturesByCity.csv")
+    demographics_fp = os.path.join(SOURCE_S3_BUCKET + "us-cities-demographics.csv")
+    airport_fp = os.path.join(SOURCE_S3_BUCKET + "airport-codes_csv.csv")
+    output_path = DEST_S3_BUCKET
 
     df_immigration, df_temperature, df_demographics, df_airport_codes = load_dataframes(immigration_fp, temperature_fp,
                                                                                         demographics_fp, airport_fp)
